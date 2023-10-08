@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Algorithm Visualization-2</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+    <style>
+        #canvasContainer {
+            text-align:center;
+        }
+        #heading{
+            text-align:center;
+            color:darkblue;
+            font-weight:bold;
+            text-decoration:underline;
+        }
+        #Illustration-desc{
+            text-align: center;
+            color:purple;
+            font-weight:bold;
+            font-size: larger;
+            text-decoration:underline;
+        }
+        #box1{
+            width:50%;
+            margin:50px auto 30px;
+            border:2px solid black;
+            padding:5px;
+            background-color: lightgray;
+        }
+        #obstacles{
+             background-color:black;
+             width:20px;
+             height:20px;
+        }
+        #obs-desc,#opt-desc{
+            width:800px;
+            margin-left:25px;
+            font-weight:bold ;
+        }
+        #obs-desc{
+            margin-top:3px;
+        }
+        #optimal{
+            background-color: #ff00c8;
+            width:20px;
+            height:20px;
+        }
+        #img{
+            margin-left:1rem;
+            margin-top:1rem;
+        }
+        #result{
+            border:0px;
+            width:auto;
+            border-bottom: 2px;
+            border-style: solid;
+            border-color: blue;
+        }
+        #result-desc{
+            text-align: center;
+            margin-top:1rem;
+            color:darkblue;
+            font-weight: bold;
+            font-size: larger;
+            margin-bottom:1rem;
+        }
+        /*.mg-bt{
+            margin-bottom:6px;
+        }
+        #input{
+            width:50%;
+            margin:50px auto 30px;
+            border:2px solid black;
+            padding:5px;
+            background-color: lightgray;
+        }
+        #submit{
+            margin:6px 30%;
+        } */
+    </style>
+</head>
+<body>
+    <h1 id="heading">A* Algorithm</h1>
+    <div id="box1">
+        <div id="obstacles">
+            <p id="obs-desc">Obstacles</p>
+        </div>
+        <div id="optimal">
+            <p id="opt-desc">Optimal path</p>
+        </div>
+    </div>
+    <!-- <form id="input">
+        <div class="mg-bt"><label for="rows">Enter the no. of rows: </label>
+        <input type="number" id="rows" required></div>
+        <div class="mg-bt"><label for="cols">Enter the no. of columns: </label>
+        <input type="number" id="cols" required></div>
+        <div class="mg-bt"><label for="start">Enter the row no. of destination(Please enter in range of 0 to rows-1): </label>
+        <input type="number" id="start" required></div>
+        <div class="mg-bt"><label for="end">Enter the column no. of destination(Please enter in range of 0 to columns-1): </label>
+        <input type="number" id="end" required></div>
+        <div class="mg-bt"><label for="obs">Enter the obstacles(Any number between 0 and 10):  </label>
+        <input type="number" required id="obs"></div>
+        <input type="submit" id="submit">
+    </form> -->
+    <article>
+        <div id="canvasContainer"></div>
+        <script src="a-star2.js"></script>
+        <div id="result-desc">Result: <span id="result"></span></div>
+        <div id="Illustration-desc">A* Algorithm Illustration</div>
+        <div style="font-size: larger; margin-left:1rem; margin-bottom:1rem; margin-top:1rem;">
+            Here each cell or block represents a city and these cities are connected to each other and we want to find the optimal path from source to destination. Some of these cells are obstacles.
+        </div>
+        <div>
+            <div style="text-decoration: underline; font-weight: bold;">Pseudocode: </div>
+            <img src="A-star-photo.png" id="img">
+        </div>
+        <div style="font-size: larger; margin-left:1rem; margin-bottom:1rem;">In this pseudocode, if a node is reached by one path, removed from openSet, and subsequently reached by a cheaper path, it will be added to openSet again. This is essential to guarantee that the path returned is optimal if the heuristic function is admissible but not consistent. If the heuristic is consistent, when a node is removed from openSet the path to it is guaranteed to be optimal so the test ‘tentative_gScore < gScore[neighbor]’ will always fail if the node is reached again.</div>
+        <div style="text-decoration: underline; font-weight: bold; font-size: larger;">Best First Search & A* Search: </div>
+        <p style="font-size: larger; margin-left:1rem;">
+            Best-first search is an instance of the general TREE-SEARCH or GRAPH-SEARCH algorithm in which a node is selected for expansion based on an evaluation function, f(n). The evaluation function is construed as a cost estimate, so the node with the lowest evaluation is expanded first.The most widely known form of best-first search is called A∗. It evaluates nodes by combining g(n), the cost to reach the node, and h(n), the cost to get from the node to the goal:</p>
+                        <p style="margin-left: 35%; font-weight: bold; font-size: larger;">f(n) = g(n) + h(n)</p> 
+            <p style="font-size: larger; margin-left:1rem;">Since g(n) gives the path cost from the start node to node n, and h(n) is the estimated cost of the cheapest path from n to the goal, we have: </p><p style="margin-left: 25%; font-weight: bold; font-size: larger;">f(n) = estimated cost of the cheapest solution through n</p><p style="font-size: larger; margin-left:1rem;">Thus, if we are trying to find the cheapest solution, a reasonable thing to try first is the node with the lowest value of g(n) + h(n). It turns out that this strategy is more than just reasonable: provided that the heuristic function h(n) satisfies certain conditions, A∗ search is both complete and optimal. The algorithm is identical to UNIFORM-COST-SEARCH except that A∗ uses g + h instead of g.
+        </p>
+    </article>
+    
+</body>
+</html>
