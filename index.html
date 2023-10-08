@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A* Algorithm</title>
+    <style>
+        #heading{
+            text-align:center;
+            color:darkblue;
+            font-weight:bold;
+            text-decoration:underline;
+        }
+        .mg-bt{
+            margin-bottom:6px;
+        }
+        #input{
+            width:50%;
+            margin:50px auto 30px;
+            border:2px solid black;
+            padding:5px;
+            background-color: lightgray;
+        }
+        #submit{
+            margin:6px 30%;
+        }
+        #img{
+            display: flexbox;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+        .note{
+            font-weight: bold;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">A* Algorithm</h1>
+    <form id="input">
+        <div class="mg-bt"><label for="rows">Enter the no. of rows: </label>
+        <input type="number" id="rows" required></div>
+        <div class="mg-bt"><label for="cols">Enter the no. of columns: </label>
+        <input type="number" id="cols" required></div>
+        <div class="mg-bt"><label for="s_start">Enter the row no. of source(Please enter in range of 0 to rows-1):</label>
+        <input type="number" id="s_start" required></div>
+        <div class="mg-bt"><label for="s_end">Enter the col no. of source(Please enter in range of 0 to cols-1):</label>
+        <input type="number" id="s_end" required></div>
+        <div class="mg-bt"><label for="start">Enter the row no. of destination(Please enter in range of 0 to rows-1): </label>
+        <input type="number" id="start" required></div>
+        <div class="mg-bt"><label for="end">Enter the column no. of destination(Please enter in range of 0 to cols-1): </label>
+        <input type="number" id="end" required></div>
+        <div class="mg-bt"><label for="obs">Enter the obstacle% out of 10 (Any number between 0 and 10):  </label>
+        <input type="number" required id="obs"></div>
+        <input type="submit" id="submit">
+    </form>
+    <div><div class="note">Note:</div>
+    <div class="note">Click on images to see the animation.</div>
+    <div class="note">First image can be only be clicked on submitting the form as it is for dynamic input.</div>
+    <div class="note">Second and third image is for fixed input.</div></div>
+    <div id="img">
+        <a href="a-star2.html" id="da-star" style="pointer-events: none;" target="_blank"><img src="a-star_d.png" style="width:28rem; height:29.5rem;"></a>
+        <a href="a-star.html" target="_blank"><img src="a-star_img.png" style="width:34rem; height:30rem;"></a>
+        <a href="a-star1.html" target="_blank"><img src="a-star_img1.png" style="width:28rem; height:29rem; padding-bottom:0.5rem;"></a>
+    </div>
+    <span style="margin-left:5rem;" class="note">A* Visualization(For any input)</span>
+    <span style="margin-left: 20%;" class="note">A* Visualization-1</span>
+    <span style="margin-left: 24%;" class="note">A* Visualization-2</span>
+    <a href="a-star3.html" target="_blank" id="da-star1" style="pointer-events: none;"><img src="a-star_img2.png" style="width:28rem; height:20rem; padding-bottom:0.5rem;"></a>
+    <span class="note" style="position: relative; right:24%; top:1rem;">A* Visualization(For any input)</span>
+    <script>
+        var input=document.getElementById('input');
+        var da_star=document.getElementById('da-star');
+        var da_star1=document.getElementById('da-star1');
+        input.addEventListener('submit',function(){
+            event.preventDefault();
+            da_star.style.pointerEvents='auto';
+            da_star1.style.pointerEvents='auto';
+            var rows=document.getElementById('rows').value;
+            var cols=document.getElementById('cols').value;
+            var s_start=document.getElementById('s_start').value;
+            var s_end=document.getElementById('s_end').value;
+            var start=document.getElementById('start').value;
+            var end=document.getElementById('end').value;
+            var obs=document.getElementById('obs').value;
+            localStorage.setItem('row', rows);
+            localStorage.setItem('col', cols);
+            localStorage.setItem('s_start', s_start);
+            localStorage.setItem('s_end', s_end);
+            localStorage.setItem('start', start);
+            localStorage.setItem('end', end);
+            localStorage.setItem('obs', obs);
+        })
+    </script>
+</body>
+</html>
