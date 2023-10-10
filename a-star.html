@@ -6,6 +6,32 @@
     <title>A* Algorithm Visualization</title>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
     <style>
+        @media (max-width: 480px){
+            #box1{
+                width: 83vw !important;
+                margin: 50px 0px 30px !important;  
+                height:9rem !important;            
+            }
+            #defaultCanvas0{
+                width:20rem !important;
+                height:20rem !important;
+                padding-right:15rem;
+            }
+            #obs-desc,#opt-desc{
+                font-size: small;
+                width:76vw !important;
+            }
+            #img{
+                width:22rem;
+                height:26rem;
+            }
+            #f-value{
+                margin-left:24% !important;
+            }
+            #f_value{
+                margin-left:15% !important;
+            }
+        }
         #canvasContainer {
             text-align:center;
         }
@@ -121,8 +147,8 @@
         <div style="text-decoration: underline; font-weight: bold; font-size: larger;">Best First Search & A* Search: </div>
         <p style="font-size: larger; margin-left:1rem;">
             Best-first search is an instance of the general TREE-SEARCH or GRAPH-SEARCH algorithm in which a node is selected for expansion based on an evaluation function, f(n). The evaluation function is construed as a cost estimate, so the node with the lowest evaluation is expanded first.The most widely known form of best-first search is called A∗. It evaluates nodes by combining g(n), the cost to reach the node, and h(n), the cost to get from the node to the goal:</p>
-                        <p style="margin-left: 35%; font-weight: bold; font-size: larger;">f(n) = g(n) + h(n)</p> 
-            <p style="font-size: larger; margin-left:1rem;">Since g(n) gives the path cost from the start node to node n, and h(n) is the estimated cost of the cheapest path from n to the goal, we have: </p><p style="margin-left: 25%; font-weight: bold; font-size: larger;">f(n) = estimated cost of the cheapest solution through n</p><p style="font-size: larger; margin-left:1rem;">Thus, if we are trying to find the cheapest solution, a reasonable thing to try first is the node with the lowest value of g(n) + h(n). It turns out that this strategy is more than just reasonable: provided that the heuristic function h(n) satisfies certain conditions, A∗ search is both complete and optimal. The algorithm is identical to UNIFORM-COST-SEARCH except that A∗ uses g + h instead of g.
+                        <p id="f-value" style="margin-left: 35%; font-weight: bold; font-size: larger;">f(n) = g(n) + h(n)</p> 
+            <p style="font-size: larger; margin-left:1rem;">Since g(n) gives the path cost from the start node to node n, and h(n) is the estimated cost of the cheapest path from n to the goal, we have: </p><p id="f_value" style="margin-left: 25%; font-weight: bold; font-size: larger;">f(n) = estimated cost of the cheapest solution through n</p><p style="font-size: larger; margin-left:1rem;">Thus, if we are trying to find the cheapest solution, a reasonable thing to try first is the node with the lowest value of g(n) + h(n). It turns out that this strategy is more than just reasonable: provided that the heuristic function h(n) satisfies certain conditions, A∗ search is both complete and optimal. The algorithm is identical to UNIFORM-COST-SEARCH except that A∗ uses g + h instead of g.
         </p>
     </article>
     
